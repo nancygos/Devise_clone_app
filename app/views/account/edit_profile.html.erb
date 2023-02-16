@@ -4,22 +4,23 @@
 <%= form_with url: "/account/edit_profile", method: :post do |f| %>
 
     <div class="input-box">
-        <%= f.label :first_name %>   <br />
-        <%= f.text_field :first_name%>
+        <%= f.label :first_name  %>   <br />
+        <%= f.text_field :first_name ,value: @user.first_name%>
     </div>
     <div class="input-box">
         <%= f.label :last_name%> <br />
-        <%= f.text_field :last_name%>
+        <%= f.text_field :last_name , value: @user.last_name %>
     </div>
     <div class="input-box">
         <%= f.label :date_of_birth %> <br />
-        <%= f.date_field :date_of_birth %>
+        <%= f.date_field :date_of_birth ,value: @user.date_of_birth %>
     </div>
     <div class="input-box">
         <%= f.label :mobile%> <br />
-        <%= f.number_field :mobile %>
+        <%= f.number_field :mobile , value: @user.mobile %>
     </div>
     
+    <br>
     <div class="button input-box btn">
         <%= f.submit "Update profile" %>
     </div>

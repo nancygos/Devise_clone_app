@@ -6,7 +6,7 @@ class User < ApplicationRecord
     validates :mobile, presence: true
     validates :date_of_birth, presence: true
     validates :email, uniqueness: true
-    validates :password, presence: true, confirmation: true , length: {in: 4..20}
+    validates :password, presence: true, confirmation: true , length: {in: 4..20}, on: :create
 
     before_save :encrypt_password
 

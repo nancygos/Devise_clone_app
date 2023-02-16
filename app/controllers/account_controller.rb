@@ -75,11 +75,11 @@ class AccountController < ApplicationController
   def edit_profile
     @user = User.find(session[:user])
     if request.post?
-      if @user.update(edit_profile_params)
+      if @user.update(user_params)
         flash[:notice] ="Successfully updated"
         redirect_to account_dashboard_url
       else
-        flash[:notice] = "Update unsuccessful"
+        flash[:notice] = "Update Unsuccessful"
         render :action => :edit_profile
       end
     end
@@ -89,7 +89,4 @@ class AccountController < ApplicationController
     params.permit(:first_name, :last_name, :date_of_birth,:date_of_birth, :mobile, :password, :encrypted_password, :password_confirmation)
   end
 
-  def edit_profile_params
-    params.permit(:first_name, :last_name, :date_of_birth, :mobile)
-  end
 end
