@@ -1,0 +1,54 @@
+<h1 class="title">Signup</h1>
+
+<%= flash[:notice] %>
+
+<%= form_with url: "/account/signup" , method: :post do |f| %>
+
+<%# Error block %>
+    <% if @user.errors.any? %>
+        <div>
+            <h2 class='error_message'> <%= pluralize(@user.errors.count, "error" ) %> Invalid user </h2>
+
+            <ul>
+                <% @user.errors.full_messages.each do |msg|  %>
+                    <li> <%= msg%> </li>
+                <%end%>
+            </ul>
+        </div>
+    <%end%>
+
+    <div class="input-box">
+        <%= f.label :first_name%> <br />
+        <%= f.text_field :first_name%>
+    </div>
+    <div class="input-box">
+        <%= f.label :last_name%> <br />
+        <%= f.text_field :last_name%>
+    </div>
+    <div class="input-box">
+        <%= f.label :email %> <br />
+        <%= f.email_field :email %>
+    </div>
+    <div class="input-box">
+        <%= f.label :date_of_birth %> <br />
+        <%= f.date_field :date_of_birth %>
+    </div>
+    <div class="input-box">
+        <%= f.label :mobile%> <br />
+        <%= f.number_field :mobile %>
+    </div>
+    <div class="input-box">
+        <%= f.label :password %> <br />
+        <%= f.password_field :password %>
+    </div>
+    <div class="input-box">
+        <%= f.label :confirm_password%> <br />
+        <%= f.password_field :password_confirmation %>
+    </div>
+    
+    <div class="button input-box btn">
+        <%= f.submit "Create account" %>
+    </div>
+<%end%>
+
+<div class="text sign-up-text"><%= link_to 'Already have an account?', account_login_path %> </div>

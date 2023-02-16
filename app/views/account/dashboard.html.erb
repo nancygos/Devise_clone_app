@@ -1,0 +1,14 @@
+<p class="navbar-text float-right">
+<% if session[:user]  %>
+    <%= link_to "Edit profile", account_edit_profile_path %> |
+    <%= link_to "Reset password", account_reset_password_path %> |
+    <%= link_to "Logout", account_logout_path %>
+<% else %>
+    <%= link_to "Sign up", account_signup_path %> |
+    <%= link_to "Login", account_login_path %>
+<% end %>
+</p>
+
+<%= flash[:notice] %>
+<h1>This is dashboard</h1>
+

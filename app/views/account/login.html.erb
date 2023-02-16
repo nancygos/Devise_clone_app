@@ -1,0 +1,23 @@
+<h1>Login</h1>
+
+<h4 class='error_message'> <%= flash[:notice] %> </h4>
+
+<%= form_with url: "/account/login" , method: :post do |f| %>
+
+    <div class="input-box">
+        <%= f.label :email %> <br />
+        <%= f.email_field :email %>
+    </div>
+    <div class="input-box">
+        <%= f.label :password %> <br />
+        <%= f.password_field :password %>
+    </div>
+    
+    <div class="button input-box btn">
+        <%= f.submit "Submit" %>
+    </div>
+<%end%>
+
+<br>
+<%= link_to "signup" , account_signup_path %> <br>
+<%= link_to "forget password?" , account_forget_password_path %>
