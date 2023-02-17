@@ -19,6 +19,10 @@
         <%= f.label :mobile%> <br />
         <%= f.number_field :mobile , value: @user.mobile %>
     </div>
+    <div class="input-box">
+        <%= f.label :profile_image %>   <br />
+        <%= f.file_field :profile_image %>
+    </div>
     
     <br>
     <div class="button input-box btn">

@@ -85,8 +85,12 @@ class AccountController < ApplicationController
     end
   end
 
+  def dashboard
+    @user = User.find(session[:user])
+  end
+
   def user_params
-    params.permit(:first_name, :last_name, :date_of_birth,:date_of_birth, :mobile, :password, :encrypted_password, :password_confirmation)
+    params.permit(:first_name, :last_name, :date_of_birth,:date_of_birth, :mobile, :password, :encrypted_password, :password_confirmation, :profile_image)
   end
 
 end

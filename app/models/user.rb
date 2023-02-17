@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    has_one_attached :profile_image
+
     attr_accessor :password
 
     validates :first_name, presence: true
